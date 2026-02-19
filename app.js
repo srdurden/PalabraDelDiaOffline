@@ -147,6 +147,11 @@ const resultTitle = document.getElementById('resultTitle');
 const resultWordLink = document.getElementById('resultWordLink');
 const resultText = document.getElementById('resultText');
 
+resultWordLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  window.open(resultWordLink.href, '_blank', 'noopener,noreferrer');
+});
+
 const state = {
   dictionary: [],
   dictionarySet: new Set(),
@@ -324,6 +329,8 @@ function endGame(won) {
   resultTitle.textContent = 'Fin del juego';
   resultWordLink.textContent = state.answer;
   resultWordLink.href = `https://dle.rae.es/${encodeURIComponent(state.answer.toLocaleLowerCase('es-ES'))}`;
+  resultWordLink.target = '_blank';
+  resultWordLink.rel = 'noopener noreferrer';
   const attemptNumber = state.row + 1;
   const lastGuess = state.board[Math.min(state.row, MAX_ATTEMPTS - 1)].join('');
   const message = won ? getWinMessage(attemptNumber) : getLoseMessage(lastGuess);
