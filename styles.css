@@ -109,7 +109,7 @@ body {
   border-radius: 8px;
   display: grid;
   place-items: center;
-  font-size: clamp(1.6rem, 8vw, 2.1rem);
+  font-size: 0.9rem;
   font-weight: 800;
   text-transform: uppercase;
   background: #fff;
@@ -173,14 +173,14 @@ body {
   border: 0;
   border-radius: 8px;
   background: var(--key);
-  font-size: 1.9rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #111;
 }
 
 .key[data-key='ENTER'],
 .key[data-key='BACKSPACE'] {
-  font-size: 1.15rem;
+  font-size: 0.9rem;
 }
 
 .modal {
