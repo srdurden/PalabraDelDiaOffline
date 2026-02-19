@@ -24,6 +24,7 @@ body {
   background: var(--bg);
   color: var(--text);
   overscroll-behavior: none;
+  touch-action: manipulation;
 }
 
 body {
@@ -54,6 +55,19 @@ body {
   letter-spacing: 0.03em;
   text-align: center;
   font-weight: 800;
+}
+
+.title-group {
+  display: grid;
+  justify-items: center;
+}
+
+.version-label {
+  margin: 3px 0 0;
+  font-size: 0.68rem;
+  color: #9ca3af;
+  letter-spacing: 0.03em;
+  font-weight: 600;
 }
 
 .icon-btn {

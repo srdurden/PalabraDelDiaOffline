@@ -8,6 +8,8 @@ const KEYBOARD_ROWS = [
 const STATE_PRIORITY = { absent: 1, present: 2, correct: 3 };
 const CACHE_BUST_DELAY = 120;
 
+let lastTouchEnd = 0;
+
 const boardEl = document.getElementById('board');
 const keyboardEl = document.getElementById('keyboard');
 const toastEl = document.getElementById('toast');
@@ -352,6 +354,17 @@ function bindUI() {
   });
 
   window.addEventListener('keydown', onPhysicalKey);
+
+  document.addEventListener('dblclick', (event) => event.preventDefault(), { passive: false });
+  document.addEventListener(
+    'touchend',
+    (event) => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) event.preventDefault();
+      lastTouchEnd = now;
+    },
+    { passive: false }
+  );
 }
 
 async function init() {
@@ -369,7 +382,6 @@ async function init() {
   }
 
   resetGame();
-  helpModal.showModal();
 }
 
 init();
