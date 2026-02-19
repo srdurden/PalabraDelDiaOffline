@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#f1f3f4" />
+    <title>La Palabra del Día</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="icon-btn" id="helpBtn" aria-label="Abrir instrucciones">❔</button>
+        <h1>LA PALABRA DEL DÍA</h1>
+        <button class="icon-btn" id="refreshBtn" aria-label="Refrescar recursos">↻</button>
+      </header>
+
+      <main class="game-area">
+        <section id="toast" class="toast" role="status" aria-live="polite"></section>
+        <section id="board" class="board" aria-label="Tablero de juego"></section>
+      </main>
+
+      <section id="keyboard" class="keyboard" aria-label="Teclado en pantalla"></section>
+    </div>
+
+    <dialog id="helpModal" class="modal">
+      <div class="modal-content">
+        <button id="closeHelpBtn" class="modal-close" aria-label="Cerrar">✕</button>
+        <h2>¿Cómo jugar?</h2>
+        <p>Adivina la palabra en 6 intentos. Cada intento debe ser una palabra válida de 5 letras.</p>
+        <p>Después de cada intento, las casillas cambian de color para mostrar qué tan cerca estás.</p>
+
+        <div class="legend-row"><span class="legend-tile correct">M</span><p>VERDE: letra correcta en posición correcta.</p></div>
+        <div class="legend-row"><span class="legend-tile present">A</span><p>AMARILLO: letra presente en otra posición.</p></div>
+        <div class="legend-row"><span class="legend-tile absent">R</span><p>GRIS: letra no presente.</p></div>
+
+        <h3>Letras repetidas</h3>
+        <p>Se prioriza primero verde y luego amarillo según el conteo de letras restantes.</p>
+
+        <div class="modal-actions">
+          <button id="playBtn" class="action-btn">¡Jugar!</button>
+          <button id="forceRefreshBtn" class="ghost-btn">Refrescar recursos</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="resultModal" class="modal">
+      <div class="modal-content result-content">
+        <h2 id="resultTitle"></h2>
+        <p id="resultText"></p>
+        <button id="playAgainBtn" class="action-btn">Jugar otra palabra</button>
+      </div>
+    </dialog>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
