@@ -144,6 +144,7 @@ const toastEl = document.getElementById('toast');
 const helpModal = document.getElementById('helpModal');
 const resultModal = document.getElementById('resultModal');
 const resultTitle = document.getElementById('resultTitle');
+const resultWordLink = document.getElementById('resultWordLink');
 const resultText = document.getElementById('resultText');
 
 const state = {
@@ -320,11 +321,13 @@ function scoreGuess(guess, answer) {
 function endGame(won) {
   state.over = true;
   state.locked = true;
-  resultTitle.textContent = won ? '¡Enhorabuena!' : 'Fin del juego';
+  resultTitle.textContent = 'Fin del juego';
+  resultWordLink.textContent = state.answer;
+  resultWordLink.href = `https://dle.rae.es/${encodeURIComponent(state.answer.toLocaleLowerCase('es-ES'))}`;
   const attemptNumber = state.row + 1;
   const lastGuess = state.board[Math.min(state.row, MAX_ATTEMPTS - 1)].join('');
   const message = won ? getWinMessage(attemptNumber) : getLoseMessage(lastGuess);
-  resultText.textContent = `${message} ${won ? '' : `La palabra era ${state.answer}.`}`.trim();
+  resultText.textContent = `\n${message}`;
   setTimeout(() => resultModal.showModal(), 500);
 }
 

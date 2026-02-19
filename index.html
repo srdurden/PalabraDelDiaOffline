@@ -13,7 +13,7 @@
         <button class="icon-btn" id="helpBtn" aria-label="Abrir instrucciones">❔</button>
         <div class="title-group">
           <h1>ENTRENO DE PALABRAS</h1>
-          <p id="appVersion" class="version-label" aria-label="Versión de la app">v1.1</p>
+          <p id="appVersion" class="version-label" aria-label="Versión de la app">v1.2</p>
         </div>
         <button class="icon-btn" id="refreshBtn" aria-label="Refrescar recursos">↻</button>
       </header>
@@ -50,7 +50,11 @@
     <dialog id="resultModal" class="modal">
       <div class="modal-content result-content">
         <h2 id="resultTitle"></h2>
-        <p id="resultText"></p>
+        <p id="resultWord" class="result-word-line">
+          La palabra era
+          <a id="resultWordLink" target="_blank" rel="noopener noreferrer"></a>
+        </p>
+        <p id="resultText" class="result-message"></p>
         <button id="playAgainBtn" class="action-btn">Jugar otra palabra</button>
       </div>
     </dialog>

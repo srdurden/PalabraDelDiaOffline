@@ -275,6 +275,53 @@ body {
   color: #1c3553;
 }
 
+.result-content h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  letter-spacing: 0.02em;
+}
+
+.result-word-line {
+  margin: 14px 0 0;
+  font-size: 1rem;
+  color: #2f4b70;
+}
+
+#resultWordLink {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: #fff;
+  font-size: clamp(1.15rem, 4.5vw, 1.45rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 10px 22px rgb(37 99 235 / 35%);
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+#resultWordLink:hover,
+#resultWordLink:focus-visible {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 12px 28px rgb(37 99 235 / 42%);
+  filter: brightness(1.05);
+}
+
+#resultWordLink:focus-visible {
+  outline: 3px solid #bfdbfe;
+  outline-offset: 2px;
+}
+
+.result-message {
+  margin: 22px 0 24px;
+  white-space: pre-line;
+  font-size: 1.03rem;
+  line-height: 1.45;
+}
+
 @keyframes shake {
   10%,
   90% {
