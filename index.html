@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
     <meta name="theme-color" content="#f1f3f4" />
     <title>La Palabra del Día</title>
     <link rel="stylesheet" href="styles.css" />
@@ -11,7 +11,10 @@
     <div class="app-shell">
       <header class="topbar">
         <button class="icon-btn" id="helpBtn" aria-label="Abrir instrucciones">❔</button>
-        <h1>LA PALABRA DEL DÍA</h1>
+        <div class="title-group">
+          <h1>LA PALABRA DEL DÍA</h1>
+          <p id="appVersion" class="version-label" aria-label="Versión de la app">v1.1</p>
+        </div>
         <button class="icon-btn" id="refreshBtn" aria-label="Refrescar recursos">↻</button>
       </header>
 
