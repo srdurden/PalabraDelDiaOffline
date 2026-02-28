@@ -293,7 +293,6 @@ function updateBoardUI() {
 function setInsertionPoint(col) {
   if (state.locked || state.over) return;
   if (col < 0 || col >= WORD_LENGTH) return;
-  if (!state.board[state.row][col]) return;
   state.col = col;
   updateBoardUI();
 }
