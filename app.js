@@ -220,6 +220,10 @@ function buildBoard() {
       tile.className = 'tile';
       tile.dataset.row = String(r);
       tile.dataset.col = String(c);
+      tile.addEventListener('click', () => {
+        if (r !== state.row) return;
+        setInsertionPoint(c);
+      });
       row.append(tile);
     }
     boardEl.append(row);
@@ -281,8 +285,17 @@ function updateBoardUI() {
       const letter = state.board[r][c];
       tile.textContent = letter;
       tile.classList.toggle('filled', !!letter && r === state.row);
+      tile.classList.toggle('active', r === state.row && c === state.col && !state.locked && !state.over);
     }
   }
+}
+
+function setInsertionPoint(col) {
+  if (state.locked || state.over) return;
+  if (col < 0 || col >= WORD_LENGTH) return;
+  if (!state.board[state.row][col]) return;
+  state.col = col;
+  updateBoardUI();
 }
 
 function updateKeyState(letter, newState) {
