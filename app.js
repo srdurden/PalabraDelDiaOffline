@@ -416,9 +416,19 @@ function addLetter(letter) {
 }
 
 function removeLetter() {
-  if (state.col <= 0) return;
-  state.col -= 1;
-  state.board[state.row][state.col] = '';
+  const currentRow = state.board[state.row];
+
+  if (state.col >= WORD_LENGTH) {
+    state.col = WORD_LENGTH - 1;
+  }
+
+  if (state.col > 0 && !currentRow[state.col]) {
+    state.col -= 1;
+  }
+
+  if (!currentRow[state.col]) return;
+
+  currentRow[state.col] = '';
   updateBoardUI();
 }
 
